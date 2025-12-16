@@ -6,7 +6,6 @@
     <title>RRC-AI | Global Infrastructure</title>
     <style>
         /* --- SWISS AEROSPACE THEME --- */
-        
         :root {
             --bg-color: #0b0c0e;       /* Deep Onyx */
             --panel-color: #16181c;    /* Anthracite */
@@ -14,6 +13,7 @@
             --text-main: #e5e7eb;      /* Cloud White */
             --text-muted: #9ca3af;     /* Battleship Grey */
             --accent-color: #ffffff;   /* Pure White Signal */
+            --alert-color: #ff3333;    /* Error Red */
         }
 
         /* RESET & BASE */
@@ -83,7 +83,7 @@
         .data-grid {
             display: grid;
             gap: 1px;
-            background-color: var(--border-color); /* Creates borders */
+            background-color: var(--border-color);
             border: 1px solid var(--border-color);
             margin: 50px 0;
         }
@@ -125,6 +125,8 @@
             padding: 8px 16px;
             border-radius: 2px;
             transition: all 0.2s;
+            cursor: pointer;
+            background: transparent;
         }
 
         .action-btn:hover {
@@ -133,7 +135,7 @@
             border-color: var(--text-main);
         }
 
-        /* ANALYST LOG MODULE */
+        /* ANALYST LOG MODULE (Now Functional) */
         .log-module {
             margin-top: 60px;
             border: 1px solid var(--border-color);
@@ -150,6 +152,7 @@
             border-bottom: 1px solid var(--border-color);
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .log-input {
@@ -164,6 +167,19 @@
             outline: none;
             min-height: 100px;
         }
+
+        /* The Transmit Button */
+        .transmit-btn {
+            background: none;
+            border: 1px solid #444;
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 9px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+        .transmit-btn:hover { background: #fff; color: #000; }
 
         /* FOOTER */
         footer {
@@ -188,6 +204,26 @@
             .action-btn { width: 100%; text-align: center; }
         }
     </style>
+
+    <script>
+        // FUNCTION 1: Placeholder Alert
+        function showOfflineAlert() {
+            alert("SYSTEM NOTICE:\n\nFile is currently OFFLINE or pending digitization.\nPlease contact Research Division for access.");
+        }
+
+        // FUNCTION 2: The Log Transmitter
+        function sendLog() {
+            const logContent = document.getElementById('logArea').value;
+            if(logContent.trim() === "") {
+                alert("ERROR: Log is empty. Please enter data before transmission.");
+                return;
+            }
+            // This constructs an email to you with the log content in the body
+            const subject = "SECURE ANALYST LOG: " + new Date().toLocaleDateString();
+            const body = encodeURIComponent(logContent);
+            window.location.href = `mailto:research@rrc-ai.org?subject=${subject}&body=${body}`;
+        }
+    </script>
 </head>
 <body>
 
@@ -208,7 +244,7 @@
                     <span class="file-id">DOC.01</span>
                     <span class="file-title">The Physics of Civilisational Intelligence</span>
                 </div>
-                <a href="https://doi.org/10.5281/zenodo.17811621" target="_blank" class="action-btn">Secure Access</a>
+                <a href="https://zenodo.org/records/17811621" target="_blank" class="action-btn">Secure Access</a>
             </div>
             
             <div class="grid-row">
@@ -216,7 +252,7 @@
                     <span class="file-id">DOC.02</span>
                     <span class="file-title">Compression Law (100:1)</span>
                 </div>
-                <a href="#" class="action-btn">Secure Access</a>
+                <button onclick="showOfflineAlert()" class="action-btn">File Offline</button>
             </div>
             
             <div class="grid-row">
@@ -224,7 +260,7 @@
                     <span class="file-id">DAT.V1</span>
                     <span class="file-title">Civilizational Graph Topology</span>
                 </div>
-                <a href="#" class="action-btn">View Topology</a>
+                <button onclick="showOfflineAlert()" class="action-btn">View Topology</button>
             </div>
         </div>
 
@@ -232,10 +268,10 @@
 
         <div class="log-module">
             <div class="log-header">
-                <span>Analyst Log // Session Active</span>
-                <span style="color: #28a745;">● Live</span>
+                <span>Analyst Log // Contact Uplink</span>
+                <button onclick="sendLog()" class="transmit-btn">Transmit Log</button>
             </div>
-            <textarea class="log-input" placeholder="> Enter session observations..."></textarea>
+            <textarea id="logArea" class="log-input" placeholder="> Enter message or observation. Click 'TRANSMIT LOG' to send to Research Division."></textarea>
         </div>
 
         <footer>
