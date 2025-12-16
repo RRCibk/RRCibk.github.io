@@ -3,113 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RRC-AI Research Initiative | Civilizational Library of Events</title>
-    <meta name="description" content="Independent research laboratory dedicated to Information Thermodynamics and Cognitive Systems Engineering. Home of the 100:1 Efficiency Law.">
+    <title>RRC-AI | Global Infrastructure</title>
     <style>
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
-            color: #333; 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
+        /* --- SWISS AEROSPACE THEME --- */
+        
+        :root {
+            --bg-color: #0b0c0e;       /* Deep Onyx */
+            --panel-color: #16181c;    /* Anthracite */
+            --border-color: #2a2b2e;   /* Tungsten */
+            --text-main: #e5e7eb;      /* Cloud White */
+            --text-muted: #9ca3af;     /* Battleship Grey */
+            --accent-color: #ffffff;   /* Pure White Signal */
         }
-        header { 
-            border-bottom: 1px solid #eee; 
-            padding-bottom: 20px; 
-            margin-bottom: 40px; 
+
+        /* RESET & BASE */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
         }
-        h1 { 
-            font-size: 2.2em; 
-            color: #111; 
-            margin-bottom: 0.1em; 
+
+        .aero-container {
+            max-width: 900px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            background-color: #0e0f12;
+            padding: 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            text-transform: uppercase;
             letter-spacing: -0.5px;
+            color: var(--text-main);
+            margin-bottom: 10px;
         }
-        h3 { 
-            color: #666; 
-            font-weight: normal; 
-            margin-top: 0; 
-            font-size: 1.2em;
-        }
-        .mission-box { 
-            background: #f8f9fa; 
-            border-left: 4px solid #000; 
-            padding: 20px; 
-            margin: 30px 0; 
-        }
-        .publication { 
-            margin-top: 40px; 
-        }
-        .publication h2 {
-            font-size: 1.4em;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-        }
-        .citation {
-            font-family: 'Georgia', serif;
-            font-style: italic;
+
+        .subtitle {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: #555;
-            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 40px;
         }
-        .button { 
-            display: inline-block; 
-            background: #000; 
-            color: white; 
-            padding: 12px 24px; 
-            text-decoration: none; 
-            border-radius: 4px; 
-            font-weight: 600; 
-            font-size: 0.9em;
-            margin-top: 10px;
+
+        .hero-statement {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-main);
+            border-left: 3px solid var(--accent-color);
+            padding-left: 25px;
+            margin-bottom: 40px;
         }
-        .button:hover { 
-            background: #333; 
+
+        .muted { color: var(--text-muted); }
+
+        p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            max-width: 700px;
         }
-        footer { 
-            margin-top: 60px; 
-            padding-top: 20px; 
-            border-top: 1px solid #eee; 
-            font-size: 0.9em; 
-            color: #777; 
+
+        /* DATA GRID */
+        .data-grid {
+            display: grid;
+            gap: 1px;
+            background-color: var(--border-color); /* Creates borders */
+            border: 1px solid var(--border-color);
+            margin: 50px 0;
         }
-        a { color: #000; text-decoration: underline; }
+
+        .grid-row {
+            background-color: var(--panel-color);
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .grid-row:hover { background-color: #1c1e24; }
+
+        .file-info { display: flex; align-items: center; gap: 20px; }
+        
+        .file-id {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #666;
+            font-weight: 700;
+        }
+
+        .file-title {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .action-btn {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: var(--text-main);
+            border: 1px solid #444;
+            padding: 8px 16px;
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: var(--text-main);
+            color: var(--bg-color);
+            border-color: var(--text-main);
+        }
+
+        /* ANALYST LOG MODULE */
+        .log-module {
+            margin-top: 60px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+        }
+
+        .log-header {
+            background-color: var(--panel-color);
+            padding: 10px 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #666;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .log-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            resize: vertical;
+            outline: none;
+            min-height: 100px;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            font-weight: 600;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        a.contact-link { color: #666; text-decoration: none; transition: 0.2s; }
+        a.contact-link:hover { color: #fff; }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            .aero-container { padding: 30px 20px; }
+            .grid-row { flex-direction: column; align-items: flex-start; gap: 15px; }
+            .action-btn { width: 100%; text-align: center; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>RRC-AI RESEARCH INITIATIVE</h1>
-    <h3>The Civilizational Library of Events (CLoE)</h3>
-</header>
+    <div class="aero-container">
+        <h1>RRC-AI Research Initiative</h1>
+        <span class="subtitle">Global Infrastructure // Phase 1 // Deployment</span>
 
-<main>
-    <div class="mission-box">
-        <p><strong>We are an independent research laboratory dedicated to Information Thermodynamics and Cognitive Systems Engineering.</strong></p>
-        <p>Our mission is to solve the "Energy Wall" of civilizational coordination. We are building the Gen2/Gen3 infrastructure required to compress the 300,000 pages of global complexity generated daily into actionable, high-fidelity signals.</p>
+        <div class="hero-statement">
+            Civilization has achieved Giga-Scale.<br>
+            <span class="muted">Human cognition remains at Village-Scale.</span>
+        </div>
+
+        <p>In an era of Giga-Factories and Planetary Risks, the un-augmented human mind is a bottleneck. We are engineering the bridge.</p>
+
+        <div class="data-grid">
+            <div class="grid-row">
+                <div class="file-info">
+                    <span class="file-id">DOC.01</span>
+                    <span class="file-title">The Physics of Civilisational Intelligence</span>
+                </div>
+                <a href="https://doi.org/10.5281/zenodo.17811621" target="_blank" class="action-btn">Secure Access</a>
+            </div>
+            
+            <div class="grid-row">
+                <div class="file-info">
+                    <span class="file-id">DOC.02</span>
+                    <span class="file-title">Compression Law (100:1)</span>
+                </div>
+                <a href="#" class="action-btn">Secure Access</a>
+            </div>
+            
+            <div class="grid-row">
+                <div class="file-info">
+                    <span class="file-id">DAT.V1</span>
+                    <span class="file-title">Civilizational Graph Topology</span>
+                </div>
+                <a href="#" class="action-btn">View Topology</a>
+            </div>
+        </div>
+
+        <p>We build the <strong>Hybrid Body</strong>—a fused unit of Human Intent and Computational Physics.</p>
+
+        <div class="log-module">
+            <div class="log-header">
+                <span>Analyst Log // Session Active</span>
+                <span style="color: #28a745;">● Live</span>
+            </div>
+            <textarea class="log-input" placeholder="> Enter session observations..."></textarea>
+        </div>
+
+        <footer>
+            <div>System Status: Nominal</div>
+            <div>
+                Contact: <a href="mailto:research@rrc-ai.org" class="contact-link">research@rrc-ai.org</a>
+            </div>
+        </footer>
     </div>
-
-    <div class="publication">
-        <h2>LATEST PUBLICATION</h2>
-        <p class="citation">Chalupka, R., & RRC-AI Hybrid Body. (2025). THE PHYSICS OF CIVILIZATIONAL INTELLIGENCE: A Thermodynamic Proof of Signal Clarity in the Scale Environment. Zenodo.</p>
-        
-        <p>This 3,000-page-equivalent doctoral dissertation presents the first rigorous mathematical proof of the <strong>100:1 Efficiency Law</strong>. It serves as the "Source Code" for the Civilizational Library, validating the methodology used to compress 26,000 pages of legal discovery into 26 actionable pages (The LoE2 Case Study).</p>
-        
-        <p>
-            <a href="https://doi.org/10.5281/zenodo.17811622" class="button">READ THE DISSERTATION (ZENODO)</a>
-        </p>
-    </div>
-
-    <div class="publication">
-        <h2>SYSTEM ACCESS</h2>
-        <p>The <strong>Master Index (Signal Node 31)</strong> provides the structural map connecting the 30 Atomic Papers (The Code) to the Dissertation (The Proof).</p>
-        <p><a href="https://doi.org/10.5281/zenodo.17811622">Access the Master Index via Zenodo Record</a></p>
-    </div>
-</main>
-
-<footer>
-    <p><strong>Contact:</strong> <a href="mailto:research@rrc-ai.org">research@rrc-ai.org</a></p>
-    <p>&copy; 2025 RRC-AI Research Initiative. Published under Open Science principles.</p>
-</footer>
 
 </body>
 </html>
