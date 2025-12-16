@@ -6,6 +6,8 @@
     <title>RRC-AI | Global Infrastructure</title>
     <style>
         /* --- SWISS AEROSPACE THEME --- */
+        /* Design Logic: High Contrast, Industrial Finish, Swiss Typography */
+        
         :root {
             --bg-color: #0b0c0e;       /* Deep Onyx */
             --panel-color: #16181c;    /* Anthracite */
@@ -83,7 +85,7 @@
         .data-grid {
             display: grid;
             gap: 1px;
-            background-color: var(--border-color);
+            background-color: var(--border-color); /* Creates borders */
             border: 1px solid var(--border-color);
             margin: 50px 0;
         }
@@ -135,7 +137,7 @@
             border-color: var(--text-main);
         }
 
-        /* ANALYST LOG MODULE (Now Functional) */
+        /* ANALYST LOG MODULE */
         .log-module {
             margin-top: 60px;
             border: 1px solid var(--border-color);
@@ -168,7 +170,6 @@
             min-height: 100px;
         }
 
-        /* The Transmit Button */
         .transmit-btn {
             background: none;
             border: 1px solid #444;
@@ -206,19 +207,18 @@
     </style>
 
     <script>
-        // FUNCTION 1: Placeholder Alert
+        // FUNCTION: Offline Alert
         function showOfflineAlert() {
             alert("SYSTEM NOTICE:\n\nFile is currently OFFLINE or pending digitization.\nPlease contact Research Division for access.");
         }
 
-        // FUNCTION 2: The Log Transmitter
+        // FUNCTION: Transmit Log via Email
         function sendLog() {
             const logContent = document.getElementById('logArea').value;
             if(logContent.trim() === "") {
                 alert("ERROR: Log is empty. Please enter data before transmission.");
                 return;
             }
-            // This constructs an email to you with the log content in the body
             const subject = "SECURE ANALYST LOG: " + new Date().toLocaleDateString();
             const body = encodeURIComponent(logContent);
             window.location.href = `mailto:research@rrc-ai.org?subject=${subject}&body=${body}`;
@@ -238,20 +238,22 @@
 
         <p>In an era of Giga-Factories and Planetary Risks, the un-augmented human mind is a bottleneck. We are engineering the bridge.</p>
 
-        <div class="grid-row">
+        <div class="data-grid">
+            
+            <div class="grid-row">
                 <div class="file-info">
                     <span class="file-id">MASTER.V1</span>
                     <span class="file-title">Engineering the Civilisational Bridge (Cumulative Framework)</span>
                 </div>
                 <a href="https://doi.org/10.5281/zenodo.17956588" target="_blank" class="action-btn">View Framework</a>
-            </div>     
+            </div>
             
             <div class="grid-row">
                 <div class="file-info">
                     <span class="file-id">DOC.02</span>
                     <span class="file-title">Compression Law (100:1)</span>
                 </div>
-                <button onclick="showOfflineAlert()" class="action-btn">File Offline</button>
+                <button onclick="showOfflineAlert()" class="action-btn">Secure Access</button>
             </div>
             
             <div class="grid-row">
