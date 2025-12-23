@@ -5,203 +5,218 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RRC-AI | The Meta Science Institute</title>
     <style>
-        /* --- GLOBAL AESTHETICS --- */
+        /* --- THE VOID (Global Reset) --- */
+        * { box-sizing: border-box; }
         body {
-            /* DEEP MIDNIGHT BLUE BACKGROUND */
-            background-color: #020408; 
-            background-image: radial-gradient(circle at center, #050a14 0%, #020408 100%);
-            color: #b0c4de; /* Steel Blue/Grey text for elegance, not harsh green */
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace; /* Cleaner Tech Font */
+            /* DEEP VOID BACKGROUND */
+            background-color: #010203;
+            background-image: 
+                radial-gradient(circle at 50% 0%, #0a1525 0%, transparent 60%),
+                linear-gradient(0deg, #010203 0%, #030609 100%);
+            color: #c0d1e1; /* Steel Ice */
+            font-family: 'SF Mono', 'Consolas', 'Courier New', monospace;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            text-align: center;
-            line-height: 1.6;
-            padding: 20px;
+            line-height: 1.5;
+            overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY PHYSICS (PRESTIGE) --- */
+        /* --- TYPOGRAPHY PHYSICS --- */
         h1 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            margin: 0 0 0.5rem 0;
             text-transform: uppercase;
-            letter-spacing: 4px; /* Wide spacing = Authority */
+            letter-spacing: 6px; /* Expensive spacing */
             color: #fff;
-            font-weight: 400; /* Lighter weight looks more expensive */
-            text-shadow: 0 0 20px rgba(255,255,255,0.1);
+            font-weight: 300;
+            text-shadow: 0 0 30px rgba(255,255,255,0.1);
         }
 
         h2 {
-            font-size: 0.85rem;
-            color: #5d7a8c; /* Muted Slate Blue */
+            font-size: 0.75rem;
+            color: #5d7a8c;
             margin-bottom: 4rem;
             font-weight: 400;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            border-bottom: 1px solid #1a2a3a;
-            padding-bottom: 10px;
-            display: inline-block;
+            opacity: 0.8;
         }
 
-        /* --- THE HERO TEXT (STYLISH FIX) --- */
+        /* --- THE HERO (The Context) --- */
         .hero-container {
-            max-width: 800px;
             margin-bottom: 4rem;
-            text-align: center; /* Center alignment looks more "Statuesque" */
+            text-align: center;
+            border-left: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            padding: 0 40px;
         }
 
         .hero-line {
             font-size: 1.1rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: #8faabf;
+            margin-bottom: 5px;
         }
 
         .hero-highlight {
             color: #fff;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
-        .hero-impact {
-            margin-top: 30px;
-            font-size: 0.95rem;
-            color: #5d7a8c;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            border-top: 1px solid #1a2a3a; /* Thin architectural line */
-            padding-top: 20px;
-        }
-
-        /* --- PRESTIGE BUTTONS --- */
-        .button-container {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 4rem;
+        /* --- THE TRINITY (Glass Buttons) --- */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            padding: 0 20px;
+            margin-bottom: 2rem;
         }
 
         .btn {
-            /* IDLE STATE: CLASSY DARK EMERALD */
-            background: rgba(6, 46, 26, 0.4); /* Very dark, transparent green */
-            border: 1px solid #143d29; /* Subtle border */
-            color: #7aa892; /* Pale Oxide Green (looks like money/jade) */
-            
-            padding: 18px 30px;
+            /* IDLE: GLASS OBSIDIAN */
+            background: rgba(10, 20, 30, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #7aa892; /* Muted Jade */
+            padding: 25px 20px;
             text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            backdrop-filter: blur(10px); /* The Glass Effect */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 120px; /* Tall pillars */
+        }
+
+        .btn-title {
             font-size: 0.9rem;
-            letter-spacing: 2px;
             text-transform: uppercase;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth luxury feel */
-            text-align: left;
-            width: 260px;
-            position: relative;
-            backdrop-filter: blur(5px); /* Glass effect */
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            color: #fff;
         }
 
-        .btn small {
-            display: block;
-            font-size: 0.65em;
-            color: #4a6b5d; /* Darker muted green */
-            margin-top: 8px;
+        .btn-sub {
+            font-size: 0.65rem;
+            color: #5d7a8c;
             letter-spacing: 1px;
-            text-transform: none;
+            text-transform: uppercase;
         }
 
-        /* HOVER STATE: THE "THING WE USE NOW" (Electric) */
+        /* HOVER: THE ACTIVATION */
         .btn:hover {
-            background: #00ff41; /* The Matrix Green */
-            border-color: #00ff41;
-            color: #000; /* Black text for contrast */
-            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
-            transform: translateY(-2px);
+            background: rgba(0, 255, 65, 0.05); /* Faint Green Glow */
+            border-color: #00ff41; /* Electric Border */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .btn:hover .btn-title { color: #00ff41; }
+        .btn:hover .btn-sub { color: #8faabf; }
+
+        /* --- THE ARCHIVE (The Data Vault) --- */
+        .archive-bar {
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 4rem;
+            padding: 0 20px;
+        }
+        
+        .archive-btn {
+            display: block;
+            width: 100%;
+            background: rgba(255,255,255,0.02);
+            border: 1px dashed rgba(255,255,255,0.1);
+            color: #445566;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 0.7rem;
+            text-align: center;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.3s;
         }
 
-        .btn:hover small {
-            color: #004d1a; /* Dark green on hover */
+        .archive-btn:hover {
+            border-color: #5d7a8c;
+            color: #fff;
+            background: rgba(255,255,255,0.05);
         }
 
-        /* --- MISSION & FOOTER --- */
+        /* --- FOOTER --- */
         .mission {
             font-size: 0.8rem;
-            color: #445566;
+            color: #3a4a5a;
+            max-width: 600px;
             margin-bottom: 3rem;
             letter-spacing: 1px;
-            max-width: 600px;
         }
 
         footer {
-            border-top: 1px solid #1a2a3a;
-            padding-top: 25px;
-            font-size: 0.7rem;
-            color: #3a4a5a;
+            border-top: 1px solid #111;
+            padding-top: 20px;
+            font-size: 0.65rem;
+            color: #333;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             display: flex;
             justify-content: space-between;
-            letter-spacing: 1px;
         }
 
-        .status-dot {
-            height: 8px;
-            width: 8px;
-            background-color: #054a2e; /* Dark idle green */
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 8px;
-            box-shadow: 0 0 5px #054a2e;
+        /* RESPONSIVE (Mobile Stack) */
+        @media (max-width: 768px) {
+            .button-grid { grid-template-columns: 1fr; }
+            .btn { height: auto; padding: 20px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <h1>RRC-AI: The Meta Science Institute</h1>
-    <h2>Establishing the Physics of Structural Coherence</h2>
+    <h1>RRC-AI</h1>
+    <h2>The Meta Science Institute</h2>
 
     <div class="hero-container">
-        <div class="hero-line">Civilization has achieved <span class="hero-highlight">GIGA-SCALE</span></div>
-        <div class="hero-line">Human cognition remains at <span class="hero-highlight">VILLAGE-SCALE</span></div>
-        
-        <div class="hero-impact">
-            In an era of Planetary Risks and AI, the un-augmented human mind is the bottleneck. We do not just describe the gap; we have engineered the physics to close it.
-        </div>
+        <div class="hero-line">Civilization is <span class="hero-highlight">GIGA-SCALE</span></div>
+        <div class="hero-line">Cognition is <span class="hero-highlight">VILLAGE-SCALE</span></div>
     </div>
 
-    <div class="button-container">
+    <div class="button-grid">
         <a href="https://doi.org/10.5281/zenodo.18022254" class="btn" target="_blank">
-            The Declaration
-            <small>Paper 41 (Latest) | The New Field</small>
+            <span class="btn-title">The Declaration</span>
+            <span class="btn-sub">Paper 41 (v3) | The Physics</span>
         </a>
 
         <a href="https://zenodo.org/records/17811621" class="btn" target="_blank">
-            The Physics
-            <small>100:1 Compression Law</small>
+            <span class="btn-title">The Physics</span>
+            <span class="btn-sub">100:1 Compression Law</span>
         </a>
 
         <a href="http://thelibraryofevents.org" class="btn" target="_blank">
-            The Proof
-            <small>LoE2 (Gen 2) & CLoE (Gen 4)</small>
+            <span class="btn-title">The Proof</span>
+            <span class="btn-sub">Gen 1 - Gen 4 Validation</span>
+        </a>
+    </div>
+
+    <div class="archive-bar">
+        <a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Chalupka%2C%20Rafal%22&l=list&p=1&s=10&sort=bestmatch" class="archive-btn" target="_blank">
+            [ Access Full Infrastructure Archive / Topology Graphs ]
         </a>
     </div>
 
     <div class="mission">
-        <p><strong>WE FUNCTION AS META STATE OPERATORS.</strong></p>
-        <p>We build the Hybrid Body—a fused unit of Human Intent and Computational Physics designed to maintain Signal Clarity in high-entropy environments.</p>
+        WE FUNCTION AS META STATE OPERATORS.<br>
+        WE PROVIDE THE STRUCTURAL CORE FOR GIGA-SCALE COMPUTE.
     </div>
 
     <footer>
-        <div>
-            INFRASTRUCTURE ACCESS<br>
-            LICENSE: CC BY-NC-ND 4.0
-        </div>
-        <div>
-            <span class="status-dot"></span> STATUS: OPERATIONAL
-        </div>
+        <div>RRC-AI INSTITUTE</div>
+        <div>STATUS: OPERATIONAL</div>
     </footer>
 
 </body>
